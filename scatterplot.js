@@ -1,21 +1,3 @@
-/*
-	ALL SUPPORTED 
-	-------------
-	
-	i) pan + drag => Set all of the points to be responsible for all pointer events.
-		             This with the default zoom package, allows us pan and drag with
-					 our points.
-					 
-	ii) zoom in => To zoom in we need to rescale our x and y axis when we zoom.
-				   That's what the, "zoomed," function does. It rescales the axis 
-				   relative to the transformation and all of the points in the 
-				   scatter plot to the new axis. 
-				   
-	iii) Country name + tooltip  => I decided to stick with only the tool tip
-									because the country name was just extra 
-									clutter in the visualization. To implement this
-									I set the tool tip posiiton relative to the page position of the points.
-*/
 
 /* 
 	SVG Setup 
@@ -249,14 +231,6 @@ d3.csv("scatterdata.csv").then(function (data) {
 	// reset button calls the zoom reset button
 	d3.select(".reset").on("click", resetted);
 	
-	/* 
-		On event, such as a zoom we transform and rescale both of our 
-		axis. Then re-call them with the new axis scales. 
-		
-		After, we just need to rescale the positions of our points relative
-		to the new axis.
-	
-	*/
 	function zoomed() {	
 		
 		// Recover the new scale
